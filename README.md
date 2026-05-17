@@ -4,6 +4,20 @@
 
 > 这个项目不会保存、上传或中转你的登录态。扩展只在本地浏览器里请求 `chatgpt.com/api/auth/session`，并把生成的 `auth.json` 写入剪贴板。
 
+## 目录结构
+
+```text
+.
+├── extension/          # 浏览器插件源码，加载扩展时选择这个目录
+│   ├── manifest.json
+│   ├── popup.html
+│   ├── popup.js
+│   ├── styles.css
+│   └── auth_bridge.js
+├── .gitignore
+└── README.md
+```
+
 ## 功能
 
 - 读取当前浏览器里的 `chatgpt.com` 登录态
@@ -18,7 +32,7 @@
 2. 打开 Chrome / Edge 的扩展管理页。
 3. 开启“开发者模式”。
 4. 点击“加载已解压的扩展程序”。
-5. 选择本仓库目录。
+5. 选择本仓库下的 `extension/` 目录。
 
 ## 使用
 
@@ -50,12 +64,12 @@ Windows 通常对应：
 
 ## 开发
 
-本项目是一个 Manifest V3 浏览器扩展，无需构建步骤。主要文件：
+本项目是一个 Manifest V3 浏览器扩展，无需构建步骤。主要文件都位于 `extension/` 目录：
 
-- `manifest.json`：扩展清单与权限声明
-- `popup.html`：扩展弹窗结构
-- `styles.css`：弹窗样式
-- `auth_bridge.js`：登录态读取和 `auth.json` 生成逻辑
-- `popup.js`：弹窗交互、复制和状态展示
+- `extension/manifest.json`：扩展清单与权限声明
+- `extension/popup.html`：扩展弹窗结构
+- `extension/styles.css`：弹窗样式
+- `extension/auth_bridge.js`：登录态读取和 `auth.json` 生成逻辑
+- `extension/popup.js`：弹窗交互、复制和状态展示
 
 修改后在扩展管理页点击“重新加载”即可测试。
