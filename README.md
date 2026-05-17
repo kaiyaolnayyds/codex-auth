@@ -4,6 +4,20 @@
 
 > 这个项目不会保存、上传或中转你的登录态。扩展只在本地浏览器里请求 `chatgpt.com/api/auth/session`，并把生成的 `auth.json` 写入剪贴板。
 
+## 问题背景
+
+部分用户直接登录 Codex 时，会遇到电话号码验证流程，导致登录过程卡住或无法继续。
+
+![Codex 电话号码验证截图](imgs/codex弹电话登录验证.png)
+
+这个扩展的思路是复用浏览器里已经登录成功的 ChatGPT 网页会话，生成 Codex CLI 可识别的登录配置。
+
+## 插件效果
+
+在浏览器已经登录 ChatGPT 的前提下，点击扩展按钮即可生成并复制 `auth.json`。
+
+![Codex Auth Bridge 插件截图](imgs/登录态插件.png)
+
 ## 目录结构
 
 ```text
@@ -14,6 +28,7 @@
 │   ├── popup.js
 │   ├── styles.css
 │   └── auth_bridge.js
+├── imgs/               # README 截图资源
 ├── .gitignore
 └── README.md
 ```
