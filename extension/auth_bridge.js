@@ -116,7 +116,7 @@
         tokens: {
           id_token: accessToken,
           access_token: accessToken,
-          refresh_token: '',
+          refresh_token: sessionData.refreshToken || accessToken,
           account_id: accountId
         },
         last_refresh: lastRefresh
